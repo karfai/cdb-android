@@ -6,8 +6,10 @@
     >
     <TableRow>
 		<TextView android:id="@+id/number" xmlns:android="http://schemas.android.com/apk/res/android"
+			android:textSize="24dip"
     		android:padding="3dip" />
 		<TextView android:id="@+id/name" xmlns:android="http://schemas.android.com/apk/res/android"
+			android:textSize="16dip"
     		android:padding="3dip" />
 	</TableRow>    		
 </TableLayout>

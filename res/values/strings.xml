@@ -2,5 +2,6 @@
 <resources>
     <string name="hello">Hello World, Start!</string>
     <string name="app_name">cdb</string>
-<string name="atstop">Waiting at a stop</string>
+
+<string name="maintitle">Search for a stop</string>
 </resources>

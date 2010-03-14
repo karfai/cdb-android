@@ -6,8 +6,17 @@
     >
     <TableRow>
 		<TextView android:id="@+id/tr_number" xmlns:android="http://schemas.android.com/apk/res/android"
-    		android:padding="3dip" />
+    		android:padding="3dip"
+    		android:textSize="24dip"
+    		/>
 		<TextView android:id="@+id/tr_name" xmlns:android="http://schemas.android.com/apk/res/android"
-    		android:padding="3dip" />
+    		android:padding="3dip"
+    		android:textSize="16dip"
+    		/>
 	</TableRow>    		
+	<TextView android:id="@+id/tr_desc" xmlns:android="http://schemas.android.com/apk/res/android"
+		android:text=""
+    	android:paddingLeft="3dip"
+    	android:textSize="12dip"
+	/>
 </TableLayout>
