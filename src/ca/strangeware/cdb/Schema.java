@@ -310,7 +310,7 @@ public class Schema {
 	public Cursor pickupsOnTripFromSeq(long trip_id, int seq, int limit) {
 		Log.d("TIMING", "starting");
 		Cursor rv = this.db.rawQuery(
-				"SELECT s.id AS _id, s.number AS number, s.name AS name FROM pickups p LEFT JOIN stops s ON p.stop_id=s.id WHERE p.trip_id="
+				"SELECT s.id AS _id, s.number AS number, s.name AS name, p.arrival FROM pickups p LEFT JOIN stops s ON p.stop_id=s.id WHERE p.trip_id="
 				+ trip_id + " AND p.sequence>" + seq + " ORDER BY p.sequence LIMIT " + limit,
 				null);
 		Log.d("TIMING", "done (size=" + rv.getCount() + ")");

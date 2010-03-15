@@ -56,6 +56,6 @@ public class AtStop extends ListActivity {
 	private SimpleCursorAdapter buildTripsAdapter(Cursor cr) {
 		String[] fr = new String[] { "bus", "headsign" };
 		int[]    to = new int[] { R.id.tr_number, R.id.tr_name };
-		return new SimpleCursorAdapter(this, R.layout.travel_row, cr, fr, to);
+		return new TravelCursorAdapter(this, R.layout.travel_row, cr, fr, to, 1);
 	}		
 }
