@@ -303,7 +303,7 @@ public class Schema {
 	public Cursor pickupsAtStop(long id, long spid, long st, long en) {
 		return this.db.rawQuery(
 				"SELECT pickups.id AS _id, arrival, departure, sequence, trip_id , stop_id, headsign, r.name AS bus FROM pickups LEFT JOIN trips t ON trip_id=t.id LEFT JOIN routes r ON r.id=t.route_id WHERE stop_id="
-				+ id + " AND t.service_period_id=" + spid + " AND arrival>=" + st + " AND arrival<=" + en,
+				+ id + " AND t.service_period_id=" + spid + " AND arrival>=" + st + " AND arrival<=" + en + " ORDER BY arrival",
 				null);
 	}
 
