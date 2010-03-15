@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, Start!</string>
-    <string name="app_name">cdb</string>
+    <string name="app_name">Coureur de Bus</string>
 
 <string name="maintitle">Search for a stop</string>
+<string name="title_start">Search for a stop</string>
 </resources>
