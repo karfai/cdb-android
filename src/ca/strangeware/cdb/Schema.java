@@ -15,11 +15,13 @@ public class Schema {
 		public long id;
 		public int	sequence;
 		public long	trip_id;
+		public int arrival;
 		
-		public PickUp(long id, int seq, long trip_id) {
+		public PickUp(long id, int seq, long trip_id, int arrival) {
 			this.id = id;
 			this.sequence = seq;
 			this.trip_id = trip_id;
+			this.arrival = arrival;
 		}
 	}
 	
@@ -292,12 +294,22 @@ public class Schema {
 	
 	public PickUp lookupPickUp(long id) throws SchemaException {
 		String wh = "pickups.id=" + id;
-		Cursor cr = this.db.query("pickups", new String[] { "id", "sequence", "trip_id" }, wh, null, null, null, null);
+		Cursor cr = this.db.query("pickups", new String[] { "id", "sequence", "trip_id", "arrival" }, wh, null, null, null, null);
 		if ( null == cr || cr.getCount() == 0 ) {
 			throw new SchemaException();
 		}
 		cr.moveToFirst();
-		return new PickUp(cr.getLong(0), cr.getInt(1), cr.getLong(2));
+		return new PickUp(cr.getLong(0), cr.getInt(1), cr.getLong(2), cr.getInt(3));
+	}
+	
+	public PickUp lookupNextPickUp(long trip_id, int seq) throws SchemaException {
+		String wh = "pickups.trip_id=" + trip_id + " AND pickups.sequence=" + (seq + 1);
+		Cursor cr = this.db.query("pickups", new String[] { "id", "sequence", "trip_id", "arrival" }, wh, null, null, null, null);
+		if ( null == cr || cr.getCount() == 0 ) {
+			throw new SchemaException();
+		}
+		cr.moveToFirst();
+		return new PickUp(cr.getLong(0), cr.getInt(1), cr.getLong(2), cr.getInt(3));
 	}
 	
 	public Cursor pickupsAtStop(long id, long spid, long st, long en) {
