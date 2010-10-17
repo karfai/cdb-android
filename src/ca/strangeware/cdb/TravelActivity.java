@@ -20,7 +20,7 @@ public abstract class TravelActivity extends ListActivity {
 		public Update(TravelActivity act) {
 			this.act = act;
 		}
-		@Override
+		
 		public void run() {
 			this.act.populate();
 		}
@@ -39,14 +39,14 @@ public abstract class TravelActivity extends ListActivity {
 		this.startTime = System.currentTimeMillis();
 		final Activity a = this;
 		getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
+
 			public void onItemClick(AdapterView<?> lv, View v, int pos, long pickup_id) {
 				try {
 					a.startActivity(intent(pickup_id));
 				} catch ( Exception e ) {
 					e.printStackTrace();
 				}
-			}	
+			}
 		});
 		populate();
 	}

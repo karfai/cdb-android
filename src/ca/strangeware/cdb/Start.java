@@ -22,14 +22,14 @@ public class Start extends Activity {
 	private void setupListeners() {
 		final Activity a = this;
 		getSearchButton().setOnClickListener(new View.OnClickListener() {
-			@Override
+
 			public void onClick(View v) {
 				populateStops();
 			}
 		});
 		getStopsView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> lv, View v, int position, long id) {
+
+			public void onItemClick(AdapterView<?> lv, View v, int pos, long id) {
 				Intent i = new Intent(a, AtStop.class);
 				i.putExtra(ActivityIds.INTENT_KEY_STOP_ID, id);
 				try {
